@@ -2,13 +2,14 @@ package com.qac.corejava.oops.Inheritance.Relations.Constructor_Chaining.SuperSt
 
 public class Bird {
       String name;
-      String color;
+      byte  lifespan;
       
 
 
-  Bird(){
+  Bird(byte lifespan){
 	  
 	  System.out.println("Bird Class Constructor ");
+	  System.out.println(lifespan);
 
   }
 }
