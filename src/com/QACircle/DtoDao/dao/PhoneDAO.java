@@ -1,5 +1,5 @@
-package com.QACircle.Employee.dao;
-import com.QACircle.Employee.dto.IphoneDTO;
+package com.QACircle.DtoDao.dao;
+import com.QACircle.DtoDao.dto.IphoneDTO;
 
 
 public class PhoneDAO {

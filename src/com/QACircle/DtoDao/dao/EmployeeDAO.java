@@ -1,5 +1,5 @@
-package com.QACircle.Employee.dao;
-import com.QACircle.Employee.dto.ProgrammerDTO;
+package com.QACircle.DtoDao.dao;
+import com.QACircle.DtoDao.dto.ProgrammerDTO;
 
 public class EmployeeDAO {
 	

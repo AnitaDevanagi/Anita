@@ -1,4 +1,4 @@
-package com.QACircle.Employee.dto;
+package com.QACircle.DtoDao.dto;
 
 public class ProgrammerDTO extends EmployeeDTO {
 	private String companyname;

@@ -1,4 +1,4 @@
-package com.QACircle.Employee.dto;
+package com.QACircle.DtoDao.dto;
 
 public class PhoneDTO {
 	private String brandname;

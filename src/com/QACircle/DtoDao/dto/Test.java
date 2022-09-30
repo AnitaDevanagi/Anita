@@ -1,5 +1,5 @@
-package com.QACircle.Employee.dto;
-import com.QACircle.Employee.dao.EmployeeDAO;
+package com.QACircle.DtoDao.dto;
+import com.QACircle.DtoDao.dao.EmployeeDAO;
 
 public class Test {
 	public static void main(String [] args) {
