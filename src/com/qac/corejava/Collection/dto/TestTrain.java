@@ -1,7 +1,5 @@
 package com.qac.corejava.Collection.dto;
 
-
-
 import java.util.ArrayList;
 
 import com.qac.corejava.Collection.dao.Traindao;
@@ -15,18 +13,35 @@ public class TestTrain {
 	    details.setDestination("Mumbai Central");
 	    details.setSpeed("130kmph");
 	    
-	    Traindao s = new Traindao();
+	    Traindto details1 = new Traindto();
+	    details1.setName("Rajdhani Express");
+	    details1.setOrigin("Bangalore Cy junction");
+	    details1.setDestination("H Nizamuddin");
+	    details1.setSpeed("140kmph");
 	    
-	    String hg = s.getByName("Avankita Express", s);
-	    System.out.println(hg);
+	    Traindto details2 = new Traindto();
+	    details2.setName("Shatabdi Express");
+	    details2.setOrigin("Habib Ganj");
+	    details2.setDestination("New Dahli");
+	    details2.setSpeed("132kmph");
 	    
-	    String h = s.removeByname("Avankita Express", s);
-	    System.out.println(h);
 	    
-	    s.getAll(0, null);
-	  
-	    System.out.println(details);
-
+	  Traindao dao = new Traindao();
+      dao.save(details);
+      dao.save(details2);
+      dao.save(details2);
+      
+      String response = dao.removeByname("Shatabdi Express");
+      System.out.println(response);
+      
+      ArrayList  result = dao.getByname("Shatabdi Express");
+      System.out.println(result);
+       
+      ArrayList  reply = dao.getByOrigin("Habib Ganj");
+      System.out.println(reply);
+       
+      ArrayList res  =  dao.getAll();
+      System.out.println(res);
 	}
 }
 

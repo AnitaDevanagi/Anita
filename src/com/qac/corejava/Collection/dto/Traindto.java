@@ -5,6 +5,13 @@ public class Traindto {
       private  String origin;
       private  String destination;
       private  String speed;
+	
+      
+      
+     public Traindto(){
+    	 System.out.println("invikong" + getClass().getSimpleName()+"Constructor");
+    	}
+     
 	public String getName() {
 		return name;
 	}
@@ -30,6 +37,9 @@ public class Traindto {
 		this.speed = speed;
 	}
 	
-	
+	 public  String toString() {
+		 return "[Name :  "+name+"\t Origin : "+origin+"\t Destination : "+destination+"\t  Speed: "+speed+"\t ]";
+				 
+	 }
 	
 }

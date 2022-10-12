@@ -6,50 +6,82 @@ import java.util.ArrayList;
 import com.qac.corejava.Collection.dto.Traindto;
 
 public class Traindao {
-  
-      
-      ArrayList<String> train =new ArrayList<String>();
 	
-	 public void save(ArrayList<String> details) {
-    	 train=details; 
-      }
-      
-      public String getByName(String name, Object details) {
-    	  for(int i=0; i<train.size(); i++) {
-  			 if(train.equals(details)) {
-  			}
-    	  
-      }
-		return name;
-      }
-      
-      public String removeByname(String name, Object details) {
-    	  for(int i=0; i<train.size(); i++) {
-  			 if(train.equals(details)) {
-  				name=null; 
-  			}
-    	  
-      }
+	ArrayList train = new ArrayList();
+	
+	
+	public String save(Traindto dto) {
+		train.add(dto);
+		
+		return dto.getName()+"data Saved";
+	}
+	
+	public Traindto getByName(String name) {
+		for(int i=0 ; i<train.size();i++) {
+			Traindto dto=(Traindto)train.get(i);
+		
+			if(dto.getName().equals(name)) {
+			      return dto;
+			}
+		}
+		return null;
+		
+	}
+	
+	
+
+    public String removeByname(String name) {
+  	  for(int i=0; i<train.size(); i++) {
+			 if(train.equals(name)) {
+				name=null; 
+			}
+  	  
+    }
+  	  
 		return "removed name" +" "+  name;
-      }
-   
-
-
-
-      
-      public void getAll(int i, ArrayList<String> details ) {
-    	  System.out.println(train.get(0));
-    	  
-      }
-
+		
+    }
 	
+	
+	public ArrayList getByname(String name) {
+		ArrayList list1 =new ArrayList();
+		for(int i=0 ; i<train.size();i++) {
+			Traindto dto=(Traindto)train.get(i);
+		
+			if(dto.getName().equals(name)) {
+			  list1.add(dto);
+			}
+		}
+		return list1;
+		
+	}
+	
+	public ArrayList getByOrigin(String origin) {
+		ArrayList g =new ArrayList();
+		for(int i=0 ; i<train.size();i++) {
+			Traindto dto =(Traindto)train.get(i);
+		
+			if(dto.getName().equals(origin)) {
+			  g.add(dto);
+			}
+		}
+		return g;
+		
+	}
+	
+	public ArrayList  getAll() {
+	    return train;
+	}
+
 
 		
 	}
-       
+	
+	
+
+  
       
-     
-    
+       
 	
 	
 
