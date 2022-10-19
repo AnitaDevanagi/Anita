@@ -2,6 +2,7 @@ package com.qac.corejava.Collection.dao;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import com.qac.corejava.Collection.dto.Traindto;
 
@@ -43,7 +44,7 @@ public class Traindao {
     }
 	
 	
-	public ArrayList getByname(String name) {
+	public LinkedList getByname(String name) {
 		ArrayList list1 =new ArrayList();
 		for(int i=0 ; i<train.size();i++) {
 			Traindto dto=(Traindto)train.get(i);
