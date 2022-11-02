@@ -2,6 +2,7 @@ package com.AQ.project.Groceryshop.DTO;
 
 import com.AQ.project.Groceryshop.DAO.GroceryShopDAO;
 
+import java.util.HashSet;
 import java.util.TreeSet;
 
 public class TestDTO {
@@ -10,16 +11,17 @@ public class TestDTO {
 		product.setNameOfproduct("Sunflower oil");
 		product.setMRPrice(165);
 		product.setBarcodenumber((long)890600728);
-		product.setDto(null);
+		
 		product.setIsveg(false);
 		product.setManufacturingdate("12/06/2022");
 		product.setExpirydate("15/02/2023");
 		product.setQuality(78);
 		
-		ManufacturercompanyDTO Manufacturercompany = new ManufacturercompanyDTO();
-		Manufacturercompany.setCompanyname("Adani Wilmar Limited");
-		Manufacturercompany.setContactno(04067067600);
-		Manufacturercompany.setMailid("darshil.lakhia@adaniwilmar.in");
+		ManufacturercompanyDTO manufacturercompany = new ManufacturercompanyDTO();
+		manufacturercompany.setCompanyname("Adani Wilmar Limited");
+		manufacturercompany.setContactno(04067067600);
+		manufacturercompany.setMailid("darshil.lakhia@adaniwilmar.in");
+		product.setDto(manufacturercompany);
 		
 		AddressDTO address = new AddressDTO();
 		address.setBuildingno("No.48,oop World of Titan");
@@ -28,18 +30,20 @@ public class TestDTO {
 		address.setState("Karnataka");
 		address.setCountry("India");
 		address.setZip(560038);
+		manufacturercompany.setAdd(address);
 		
         GroceryShopDAO shop = new GroceryShopDAO ();
-		String  display  = shop.removeProctByCompanyName("Sunflower oil","Adani Wilmar Limited");
-		System.out.println(display);
+        shop.addproduct(product);
+		//String  display  = shop.removeProctByCompanyName("Sunflower oil","Adani Wilmar Limited");
+		//System.out.println(display);
 		
-		ManufacturercompanyDTO  show  = shop.getAllProductByCompanyName("Adani Wilmar Limited");
+		TreeSet  show  = shop.getAllProductByCompanyName("Adani Wilmar Limited");
 		System.out.println(show);
 		
-		ProductDTO  s  = shop.getAllProductBynameofpruduct("Sunflower oil");
+		HashSet  s  = shop.getAllProductBynameofpruduct("Sunflower oil");
 		System.out.println(s);
 		
-		shop.showallprodut();
+		shop.showAllProdut();
 		
 		int  abc  = shop.totalNumberOfProduct();
 		System.out.println(abc);

@@ -2,6 +2,7 @@ package com.AQ.project.Groceryshop.DAO;
 
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.TreeSet;
 
 import com.AQ.project.Groceryshop.DTO.ManufacturercompanyDTO;
@@ -9,59 +10,82 @@ import com.AQ.project.Groceryshop.DTO.ProductDTO;
 
 public class GroceryShopDAO {
 	
-	LinkedList list = new LinkedList();
+	LinkedList<ProductDTO> list = new LinkedList<ProductDTO>();
     public String addproduct(ProductDTO dto) {
+    	
 	   list.add(dto);
 	    return dto.getDto()+"data saved";
 		
 		
 	}
        public String removeProctByCompanyName(String nameOfproduct,String companyname) {
+    	  int count =0;
     	for(int i=0; i<list.size(); i++) {
-    		if(list.equals(companyname));
-    		return null;
-    			
+    		ProductDTO pro = list.get(i); 
+    		if(pro.getNameOfproduct().equals(nameOfproduct) && pro.getDto().getCompanyname().equals(companyname)) {
+    			list.remove(pro);
+    			count++;
+    		}
+    } 
+    	if(count>0) {
+    		return "product removed";
     	}
-    	return nameOfproduct;
-    	
-    }
+    	else {
+    		return "product is not available";
+    		
+    	}
+   }
      
-     HashSet<ProductDTO> list2 = new HashSet<ProductDTO>();
-    public ProductDTO  getAllProductBynameofpruduct(String nameOfproduct) {
-    	for(ProductDTO hashset :list2) {
-    		if(hashset.getNameOfproduct().equals(nameOfproduct)) {
-    			return hashset;
+     
+    public HashSet  getAllProductBynameofpruduct(String nameOfproduct) {
+    	HashSet set= new HashSet();
+    	for(ProductDTO product :list) {
+    		if(product.getNameOfproduct().equals(nameOfproduct)) {
+    		 set.add(product);
     		}
     	}
-		return null;
+		return set;
     	
     }
     
-    TreeSet<ManufacturercompanyDTO> list1 = new TreeSet<ManufacturercompanyDTO>();
-    public ManufacturercompanyDTO  getAllProductByCompanyName(String companyname) {
-    	for(ManufacturercompanyDTO treeset :list1) {
-    		if(treeset.getCompanyname().equals(companyname)) {
-    			return treeset;
+    
+    public TreeSet  getAllProductByCompanyName(String companyname) {
+    	TreeSet products = new TreeSet();
+    	for( ProductDTO product :list) {
+    		if(product.getDto().getCompanyname().equals(companyname)) {
+    			products.add(product);
     		}
     	}
-		return null;
+		return products;
     	
     }
     
-    public void showallprodut() {
-    	for(ProductDTO h : list2) {
+    public void showAllProdut() {
+    	for(ProductDTO h : list) {
         	System.out.println(h);	
         		
         		}
         	}
     	
     public int totalNumberOfProduct() {
-    	for(ProductDTO sum : list2) {
+    	return list.size();
+          
         		
        }
-		return 0;
-        	}
+    
+    public List getAllVegProduct() {
+    	List products = new LinkedList();
+    	for( ProductDTO product :list) {
+    		if(product.isIsveg()) {
+    			products.add(product);
+    		}
+    	}
+       return products;
     	
     }
+	
+        	}
+    	
+    
 
 
