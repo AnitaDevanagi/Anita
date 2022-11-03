@@ -3,6 +3,8 @@ package com.AQ.project.Groceryshop.DTO;
 import com.AQ.project.Groceryshop.DAO.GroceryShopDAO;
 
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.TreeSet;
 
 public class TestDTO {
@@ -34,19 +36,26 @@ public class TestDTO {
 		
         GroceryShopDAO shop = new GroceryShopDAO ();
         shop.addproduct(product);
-		//String  display  = shop.removeProctByCompanyName("Sunflower oil","Adani Wilmar Limited");
-		//System.out.println(display);
+        
+		String  display  = shop.removeProctByCompanyName("Sunflower oil","Adani Wilmar Limited");
+	    System.out.println(display);
 		
-		TreeSet  show  = shop.getAllProductByCompanyName("Adani Wilmar Limited");
+        HashSet  show  = shop.getAllProductByCompanyName("Adani Wilmar Limited");
 		System.out.println(show);
 		
 		HashSet  s  = shop.getAllProductBynameofpruduct("Sunflower oil");
 		System.out.println(s);
 		
-		shop.showAllProdut();
+	    int  show1  = shop.totalNumberOfProduct();
+		System.out.println(show1);
 		
-		int  abc  = shop.totalNumberOfProduct();
-		System.out.println(abc);
+	    List  show2 = shop.getAllVegProduct();
+		System.out.println(show2);
+		 
+		LinkedList  show3 = shop.getAllNonVegProduct();
+		System.out.println(show3);
+		
+		shop.showAllProduct();
 		
 	}
 

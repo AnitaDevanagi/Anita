@@ -77,7 +77,13 @@ public class ProductDTO {
 		this.quality = quality;
 	}
 	
-	
+	public String toString() {
+			 return "[nameOfproduct :  "+nameOfproduct+"\t MRPrice : "+ MRPrice+"\t barcodenumber : "+barcodenumber+"\t isveg : "+isveg+"\t manufacturingdate:  "+manufacturingdate+"\t expirydate : "+expirydate+"\t quality:"+quality+"\t]";
+				
+
+		}	 
+		
+	}
     
 
-}
+
